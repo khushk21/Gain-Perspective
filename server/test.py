@@ -39,7 +39,7 @@ def output_prediction(text):
     x_train=pad_sequences(tokenized_train,maxlen=maxlen)
     prediction=load_model.predict(x_train)
     return prediction
-def performTweetAnalysis():
-    cleaned_text_data = clean_text(s1)
+def performTweetAnalysis(text):
+    cleaned_text_data = clean_text(text)
     preprocessed_data = remove_stopwords(cleaned_text_data)
-    print(output_prediction(preprocessed_data))
+    return output_prediction(preprocessed_data)
