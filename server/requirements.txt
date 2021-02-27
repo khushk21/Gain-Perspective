@@ -3,3 +3,5 @@ newsapi-python
 flask
 flask_cors
 tensorflow
+keras
+nltk

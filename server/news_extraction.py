@@ -12,18 +12,20 @@ class NewsExtraction:
         for entity in entities:
             if entity.type_ in IMP_ENTITY_TYPE:
                 key_entities.append(entity.name)
-
-        response = self.client.get_everything(q='+'.join(key_entities[:2]),
+        try:
+            response = self.client.get_everything(q='+'.join(key_entities[:]),
                                                      sources=self.list_of_sources,
                                                      language="en",
                                                      sort_by="relevancy",
                                                      page_size=10)
+        except:
+            response = None
         return response['articles']
         
 
 if __name__ == "__main__":
     model = LanguageModel()
-    tweet = "Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones."
-    entities = model.tweet_entities(tweet)
+    text = "Google, headquartered in Mountain View (1600 Amphitheatre Pkwy, Mountain View, CA 940430), unveiled the new Android phone for $799 at the Consumer Electronic Show. Sundar Pichai said in his keynote that users love their new Android phones."
+    entities = model.text_entities(tweet)
     news = NewsExtraction()
     print(len(news.get_news_articles(entities)))

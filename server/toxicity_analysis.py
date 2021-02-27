@@ -52,11 +52,11 @@ def output_prediction(text, max_features = 22000, maxlen = 200):
             result.append(CLASSES[i]) 
     return {"result" : result if len(result) != 0 else CLASSES[0]}
     
-def tweet_analysis(text):
+def text_analysis(text):
     cleaned_text_data = clean_text(text)
     preprocessed_data = remove_stopwords(cleaned_text_data)
     return output_prediction(preprocessed_data)
 
 if __name__ == "__main__":
-    text = "How do you"
-    print(tweet_analysis(text))
+    text = "How do you such an annoying asshole, you motherfucking douchebag"
+    print(text_analysis(text))
