@@ -8,7 +8,7 @@
 	"permissions": ["tabs", "activeTab"],
 	"content_scripts": [
 		{
-			"matches": ["*://*"],
+			"matches": ["<all_urls>"],
 			"css": ["styles.css"]
 		}
 	],

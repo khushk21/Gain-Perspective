@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<meta charset="UTF-8" />
+	<head>
+		<style>
+			body {
+				width: 300px;
+			}
+		</style>
+	</head>
 	<title>GP</title>
-	<meta name="viewport" content="width=600px,initial-scale=1" />
-
 	<body>
 		<div id="main">
-			<form action="/content.js">
-				<textarea
-					required
-					type="text"
-					id="textarea"
-					name="textarea"
-					placeholder="enter your text here"
-				></textarea
-				><br />
-				<input id="button" type="submit" value="Submit" />
-				<script src="content.js"></script>
-			</form>
+			<textarea
+				type="text"
+				id="GPtextarea"
+				name="textarea"
+				placeholder="enter your text here"
+			></textarea
+			><br />
+			<button id="GPbutton">Submit</button>
+			<script src="content.js"></script>
+			<div id="messages"></div>
 		</div>
-		<div id="message"></div>
 	</body>
 </html>

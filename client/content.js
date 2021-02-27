@@ -1,22 +1,15 @@
 async function gain_perspective(text) {
-	let perspective = await fetch(`http://0.0.0.0:8000/endpoint?text=${text}`, {
+	let data = await fetch(`http://0.0.0.0:8000/endpoint?text=${text}`, {
 		method: 'GET',
 	}).catch((err) => {
-		document.getElementById('messages').innerHTML = 'Internal Server Error';
-		return;
+		document.getElementById('messages').innerHTML = err;
 	});
-	console.log(perspective);
-	return perspective;
+	data = await data.json();
+	document.getElementById('messages').innerHTML = data['toxicity'];
 }
-let button = document.getElementById('button');
+
+let button = document.getElementById('GPbutton');
 button.onclick = () => {
-	const data = gain_perspective(document.getElementById('textarea').value);
-	if (data == null) return;
-	const articles = data['articles'];
-	const toxicity = data['toxicity'];
-	console.log(articles);
-	console.log(toxicity);
-	const div = document.getElementById('messages');
-	let toxicityReport = `<div>Toxicity Report: ${toxicity}</div>`;
-	div.innerHTML = toxicityReport;
+	document.getElementById('messages').innerHTML = 'Gaining Perspective...';
+	gain_perspective(document.getElementById('GPtextarea').value);
 };

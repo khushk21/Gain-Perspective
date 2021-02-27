@@ -50,7 +50,7 @@ def output_prediction(text, max_features = 22000, maxlen = 200):
             continue
         if value > 0.05:
             result.append(CLASSES[i]) 
-    return {"result" : result if len(result) != 0 else CLASSES[0]}
+    return {"result" : result if len(result) != 0 else [CLASSES[0]]}
     
 def text_analysis(text):
     cleaned_text_data = clean_text(text)
