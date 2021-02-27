@@ -1,0 +1,14 @@
+{
+	"name": "Intuition",
+	"version": "1.0",
+	"description": "",
+	"permissions": ["tabs", "activeTab"],
+	"content_scripts": [
+		{
+			"matches": ["*://*.twitter.com/*"],
+			"css": ["styles.css"],
+			"js": ["content.js"]
+		}
+	],
+	"manifest_version": 2
+}
