@@ -17,13 +17,14 @@ def endpoint():
     sentiment = language_model.text_sentiment(text).score
     entities = language_model.text_entities(text)
     articles = news_retrieval.get_news_articles(entities)
-    toxicity = "No toxicity detected! Keep smiling :)"
-    if sentiment <= -0.2:
+    toxicity = ["No toxicity detected! Keep smiling :)"]
+    if sentiment <= -0:
         toxicity = text_analysis(text)
         if "error" not in toxicity:
             toxicity = toxicity['result']
         else:
-            toxicity = None
+            toxicity = ["toxic"]
+    print({"articles" : articles, "toxicity" : toxicity})
     return {"articles" : articles, "toxicity" : toxicity}
 
 @app.route("/", methods=["GET"])
