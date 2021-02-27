@@ -16,7 +16,7 @@ def endpoint():
     sentiment = language_model.tweet_sentiment(tweet)
     entities = language_model.tweet_entities(tweet)
     articles = news_retrieval.get_news_article(entities)
-    if sentiment < -0.2:
+    if sentiment <= -0.2:
         # Do Perspective Model
         pass
     return

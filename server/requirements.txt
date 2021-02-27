@@ -1,2 +1,5 @@
 google-cloud-language
 newsapi-python
+flask
+flask_cors
+tensorflow
