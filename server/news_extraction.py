@@ -12,16 +12,20 @@ class NewsExtraction:
         for entity in entities:
             if entity.type_ in IMP_ENTITY_TYPE:
                 key_entities.append(entity.name)
-        try:
-            response = self.client.get_everything(q='+'.join(key_entities[:2]),
-                                                     sources=self.list_of_sources,
-                                                     language="en",
-                                                     sort_by="relevancy",
-                                                     page_size=10)
-        except:
-            response = None
-        return response['articles']
-        
+        result = []
+        for i in range(len(key_entities)):
+            try:
+                response = self.client.get_everything(q='+'.join(key_entities[:len(key_entities)-i]),
+                                                        sources=self.list_of_sources,
+                                                        language="en",
+                                                        sort_by="relevancy",
+                                                        page_size=10)['articles']
+                result = result + response
+            except:
+                response = None
+            if len(result) >= 5:
+                break
+        return result
 
 if __name__ == "__main__":
     model = LanguageModel()

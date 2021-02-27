@@ -3,22 +3,80 @@
 	<head>
 		<style>
 			body {
-				width: 300px;
+				width: 600px;
+				height: 400px;
+				background-color: black;
+				color: white;
+				font-size: 15px;
+			}
+			textarea {
+				resize: none;
+				width: 580px;
+				height: 100px;
+				background-color: black;
+				color: white;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			img {
+				width: 200px;
+				height: 200px;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+			}
+			.heading {
+				font-size: 150px;
+			}
+			a:link {
+				color: pink;
+				background-color: transparent;
+				text-decoration: none;
+			}
+			a:active {
+				color: yellow;
+				background-color: transparent;
+				text-decoration: underline;
+			}
+			a:visited {
+				color: pink;
+				background-color: transparent;
+				text-decoration: none;
+			}
+			a:hover {
+				color: red;
+				background-color: transparent;
+				text-decoration: underline;
+			}
+			main {
+				font-size: medium;
 			}
 		</style>
 	</head>
 	<title>GP</title>
 	<body>
-		<div id="main">
+		<div id="bg" class="bg"></div>
+		<div id="main" class="main">
+			<div id="heading">
+				<b>Gain Perspective</b>
+				<div>
+					Aim: To tackle Hate speech and Misinformation on social platforms and
+					websites
+				</div>
+			</div>
+			<br />
 			<textarea
 				type="text"
 				id="GPtextarea"
 				name="textarea"
-				placeholder="enter your text here"
+				placeholder="Enter your text here"
 			></textarea
 			><br />
 			<button id="GPbutton">Submit</button>
 			<script src="content.js"></script>
+			<br /><br />
 			<div id="toxicity"></div>
 			<br />
 			<div id="atricles"></div>

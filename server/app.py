@@ -24,7 +24,6 @@ def endpoint():
             toxicity = toxicity['result']
         else:
             toxicity = ["toxic"]
-    print({"articles" : articles, "toxicity" : toxicity})
     return {"articles" : articles, "toxicity" : toxicity}
 
 @app.route("/", methods=["GET"])

@@ -7,20 +7,23 @@ async function gain_perspective(text) {
 	});
 	data = await data.json();
 	document.getElementById('toxicity').innerHTML =
-		'<b>' + data['toxicity'].join(', ') + '</b><br/><br/>News Articles: ';
+		'Toxicity Rating: ' +
+		'<b>' +
+		data['toxicity'].join(', ') +
+		'</b><br/><br/>News Articles: ';
 	if (data['articles'].length == 0)
 		document.getElementById('toxicity').innerHTML += 'No Articles Found! :(';
 	for (var i = 0; i < data['articles'].length; i++) {
 		document.getElementById('toxicity').innerHTML +=
 			'<br/><br/><div><b>' +
 			data['articles'][i]['title'] +
-			'</b></div><br/> <div><img src=' +
+			' (<a href=' +
+			data['articles'][i]['url'] +
+			'>here</a>)</b></div><br/> <div><img src=' +
 			data['articles'][i]['urlToImage'] +
 			'></img><div>' +
 			data['articles'][i]['description'] +
-			'</div></div><a href=' +
-			data['articles'][i]['url'] +
-			'>click here for more information</a>';
+			'</div></div>';
 		if (i == 4) break;
 	}
 }
