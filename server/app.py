@@ -3,6 +3,7 @@ from flask_cors import CORS
 import os
 from google_language import LanguageModel
 from news_extraction import NewsExtraction
+from toxicity_analysis import tweet_analysis
 
 app = Flask(__name__)
 CORS(app)
@@ -17,8 +18,7 @@ def endpoint():
     entities = language_model.tweet_entities(tweet)
     articles = news_retrieval.get_news_article(entities)
     if sentiment <= -0.2:
-        # Do Perspective Model
-        pass
+        output = tweet_analysis(tweet)
     return
 
 @app.route("/", methods=["GET"])
