@@ -1,0 +1,16 @@
+{
+	"name": "GP",
+	"version": "1.0",
+	"description": "A chrome extension to tackle Hate Speech and misinformation",
+	"browser_action": {
+		"default_popup": "popup.html"
+	},
+	"permissions": ["tabs", "activeTab"],
+	"content_scripts": [
+		{
+			"matches": ["*://*"],
+			"css": ["styles.css"]
+		}
+	],
+	"manifest_version": 2
+}
