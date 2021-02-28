@@ -1,6 +1,7 @@
 # Gain Perspective
-
-![](./docs/logo.png)
+<p align="center">
+<img src="docs/logo.png" width="500">
+</p>
 
 ## Inspiration
 
@@ -14,7 +15,9 @@ Gain Perspective is a chrome extension that takes user's inputs and provides the
 
 This extension is built using HTML, CSS and javascript. The backend scripts are written in python and deployed using flask. We utilised tensorflow and nltk for training our sentiment analysis model and used the Google-Language-API for polarity detection and entity detection.
 
-![](./docs/ArchitectureDiagram.png)
+<p align="center">
+<img src="docs/ArchitectureDiagram.png" width="500">
+</p>
 
 ## Challenges we ran into
 
